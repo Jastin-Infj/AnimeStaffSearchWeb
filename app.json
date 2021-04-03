@@ -27,6 +27,17 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra":{
+      "firebase":{
+        "apiKey": "AIzaSyD12UVQdtay7BX_4w4zLdG5sZrGW41svp4",
+        "authDomain": "animewiki-8e8c7.firebaseapp.com",
+        "projectId": "animewiki-8e8c7",
+        "storageBucket": "animewiki-8e8c7.appspot.com",
+        "messagingSenderId": "893493721066",
+        "appId": "1:893493721066:web:9c62641bb9cdde575ae493",
+        "measurementId": "G-S8718LM8R6"
+      }
     }
   }
 }
