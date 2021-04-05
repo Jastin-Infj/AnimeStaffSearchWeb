@@ -1,41 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { Platform ,StyleSheet, Text, View } from 'react-native';
-
-//プラットフォームによって変更する
-const instructions = Platform.select({
-  ios: 'Press Cmd + R',
-  android: 'Press Double Taps'
-});
+import {View , Image } from 'react-native';
 
 export default class App extends Component {
   render(){
-    // instructionsのメッセージは プラットフォームによって変更される
     return(
-      <View style = {styles.container}>
-        <Text style = {styles.welcome}> Hello World !</Text>
-        <Text style = {styles.instructions}> To get started , edit App.js </Text>
-        <Text style = {styles.instructions}> {instructions}</Text>
-      </View>
+      //ローカルファイル
+      <View><Image style = {{width:64,height:64}} source = {require('./assets/favicon.png')}></Image></View>
+      //外部URL
+      //<View><Image style = {{width:64,height:64}} source = {{uri:'https://facebook.github.io/react-native/img/favicon.png'}}></Image></View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome:{
-    fontSize:20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions:{
-    textAlign:'center',
-    color:'#333333',
-    marginBottom: 5
-  }
-});
+///解説
+//スタイル シート を 指定 し て い ない ので 画面 の 左上 に 表示 さ れ て い ます  
