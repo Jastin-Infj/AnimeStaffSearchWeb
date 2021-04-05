@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import {View , Button } from 'react-native';
+import {View , Image, TouchableOpacity } from 'react-native';
 
 export default class App extends Component {
+  showWarning() {
+    console.warn('prwss test');
+  }
   render(){
     return(
-      //ボタン作成
+      //画像つき ボタン
       <View style = {{flex:1, justifyContent:'center', alignContent:'center'}}>
-        <Button onPress = {() => console.warn('pressed!')} title = {'Press'}></Button>
+        <TouchableOpacity onPress = {this.showWarning}>
+          <Image style = {{width:64,height:64}} source = {require('./assets/favicon.png')}></Image>
+        </TouchableOpacity>
       </View>
     );
-  }
+  } 
 }
 
 ///解説
