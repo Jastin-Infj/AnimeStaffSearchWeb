@@ -1,25 +1,32 @@
 import React, { Component } from 'react';
-import {View , Text , FlatList } from 'react-native';
+import {View , TextInput } from 'react-native';
 
-//key がないと警告表示
-const data = [
-  {str: 'hoge', key:1},
-  {str: 'fuga', key:2},
-  {str: 'foo',  key:3}
-];
+// 下線部を borderBottomWidth で実現している
 
-
-//連想配列の方法
 export default class App extends Component {
+  constructor(){
+    super()
+      this.state = {
+        text: ""
+      }
+  }
   render(){
     return(
-      <View style = {{paddingTop:50}}>
-        <FlatList 
-          data = {data}
-          renderItem = {({item}) => {
-            return <Text key = {item.key}>{item.str}</Text>
+      <View style = {{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f5fcff'
+      }}>
+        <TextInput
+          style = {{
+            width: '50%',
+            borderBottomWidth: 1.5,
+            borderBottomColor: '#ccc'
           }}
-        />
+          onChangeText = {(text) =>
+            this.setState({text})}
+          value = {this.state.text}/>
       </View>
     );
   }
