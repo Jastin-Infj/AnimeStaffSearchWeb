@@ -1,34 +1,27 @@
-import React, { Component } from 'react';
-import {Text,View,Button ,Share} from 'react-native';
+import React , {Component} from 'react';
+import {StyleSheet , View , Button , TextInput , Text, Clipboard} from 'react-native';
+//import ClipBoard from '@react-native-community/clipboard';
 
-//シェアを実行したら、 実行
-export default class App extends Component {
+//ClipBoardは 非推奨だが、expo では 上記の ClipBoardが利用出来なかったため 旧 ClipBoardを利用
+export default class App extends Component{
   constructor(){
     super()
       this.state = {
-        position:{}
+        input: "",
+        text: ""
       }
   }
-  openShare(){
-    Share.share({
-      title: 'タイトル',
-      message: '概要'
-    },{}).then((result, activityType) => {
-      if(result.action === Share.dismissedAction){
-        //シェアを実行した場合 (iosのみ)
-        console.warn('シェア拒否');
-      }
-      else if(result.action === Share.sharedAction){
-        //シェアを実行した場合 (iosのみ Androidは常にこれが実行される)
-        console.warn('シェア実行');
-      }
-      else{
-        console.warn('それ以外');
-      }
-    })
+  pbcopy(){
+    const {input} = this.state;
+    Clipboard.setString(input);
   }
+
+  async getpb(){
+    const text = await Clipboard.getString();
+    this.setState({text});
+  }
+
   render(){
-    const postion = this.state.position;
     return(
       <View style = {{
         flex: 1,
@@ -36,9 +29,30 @@ export default class App extends Component {
         alignItems: 'center',
         backgroundColor: '#F5FCFF'
       }}>
+        <TextInput
+          style = {{
+            width: '100%',
+            textAlign: 'center',
+            borderBottomWidth: 1,
+            borderBottomColor: '#ccc'
+          }}
+            value = {this.state.input}
+            onChangeText = {
+              input =>
+                this.setState({input})
+            }/>
         <Button
-          onPress = {() => this.openShare()}
-          title = {'シェアを開く'}
+          onPress = {() =>
+            {this.pbcopy()}
+          }
+          title = "save to ClipBoard"
+          />
+        <Text>{this.state.text}</Text>
+        <Button
+          onPress = {() =>
+            {this.getpb()}
+          }
+          title = "get from ClipBoard"
         />
       </View>
     );
