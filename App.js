@@ -1,32 +1,44 @@
 import React, { Component } from 'react';
-import {View} from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import {Text,View,Button ,Share} from 'react-native';
 
-// React は 原則 state　変数を管理していく
-// DatePickerIOS(react-native) から DateTimePicker ('@react-native-community/datetimepicker') に移行
+//シェアを実行したら、 実行
 export default class App extends Component {
   constructor(){
     super()
       this.state = {
-        date: new Date()
+        position:{}
       }
   }
+  openShare(){
+    Share.share({
+      title: 'タイトル',
+      message: '概要'
+    },{}).then((result, activityType) => {
+      if(result.action === Share.dismissedAction){
+        //シェアを実行した場合 (iosのみ)
+        console.warn('シェア拒否');
+      }
+      else if(result.action === Share.sharedAction){
+        //シェアを実行した場合 (iosのみ Androidは常にこれが実行される)
+        console.warn('シェア実行');
+      }
+      else{
+        console.warn('それ以外');
+      }
+    })
+  }
   render(){
+    const postion = this.state.position;
     return(
       <View style = {{
         flex: 1,
         justifyContent: 'center',
-        alignItems : 'center',
+        alignItems: 'center',
         backgroundColor: '#F5FCFF'
       }}>
-        <DateTimePicker
-          style = {{width: 320}}
-          value = {this.state.date}
-          onDateChange = {date => {
-            this.setState({date})
-          }}
-          mode = {'date'}
-          display = {'spinner'}
+        <Button
+          onPress = {() => this.openShare()}
+          title = {'シェアを開く'}
         />
       </View>
     );
