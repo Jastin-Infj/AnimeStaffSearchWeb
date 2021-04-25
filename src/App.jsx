@@ -2,7 +2,7 @@ import React from 'react';
 import defaultDataset from './dataset';
 import './assets/styles/style.css';
 
-import {AnswersList} from './components/index.js';
+import {AnswersList , Chats} from './components/index.js';
 
 export default class App extends React.Component {
   constructor(props){
@@ -14,6 +14,8 @@ export default class App extends React.Component {
       dataset:defaultDataset,   //質問内容
       open:false                //モーダルウィンドウ
     }
+
+    this.selectAnsWer = this.selectAnsWer.bind(this);
   }
 
   //内容を設定
@@ -26,16 +28,75 @@ export default class App extends React.Component {
     });
   }
 
+  initChat = () => {
+    const initDataset = this.state.dataset[this.state.currendId];
+    const chat = {
+      text: initDataset.question,
+      type: 'question'
+    };
+
+    const chats = this.state.chats;
+    chats.push(chat);
+
+    this.setState({
+      chats: chats
+    });
+  };
+
+
+  displayNextQuestion = (nextQuestionId) => {
+    const chats = this.state.chats;
+    chats.push({
+      text: this.state.dataset[nextQuestionId].question,
+      type:'question'
+    });
+
+    this.setState({
+      answers: this.state.dataset[nextQuestionId].answers,
+      chats: chats,
+      currendId: nextQuestionId,
+      nextQuestionId:nextQuestionId
+    });
+  };
+
+  selectAnsWer = (selectAnsWer, nextQuestionId) => {
+    switch(true){
+      case (nextQuestionId === 'init'):
+        this.displayNextQuestion(nextQuestionId);
+        break;
+
+      default:
+        const chat  = {
+          text:selectAnsWer,
+          type:'answer'
+        };
+
+        const chats = this.state.chats;
+        chats.push(chat);
+
+        this.setState({
+          chats:chats
+        });
+
+        //次回の質問
+        this.displayNextQuestion(nextQuestionId);
+
+        break;
+    }
+  };
+
   //初期化処理
   componentDidMount(){
-    this.initAnsWer();
+    const initAnsWer = "";
+    this.selectAnsWer(initAnsWer, this.state.currendId);
   }
 
   render() {
     return (
       <section className="c-section">
         <div className="c-box">
-          <AnswersList answers={this.state.answers} />
+          <Chats chats={this.state.chats}></Chats>
+          <AnswersList answers={this.state.answers} select={this.selectAnsWer}/>
         </div>
       </section>
     );
