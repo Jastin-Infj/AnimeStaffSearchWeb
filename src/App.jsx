@@ -62,7 +62,15 @@ export default class App extends React.Component {
   selectAnsWer = (selectAnsWer, nextQuestionId) => {
     switch(true){
       case (nextQuestionId === 'init'):
-        this.displayNextQuestion(nextQuestionId);
+        setTimeout(() => {
+          this.displayNextQuestion(nextQuestionId);
+        },500);
+        break;
+      case (/^https:*/.test(nextQuestionId)):
+        const a = document.createElement('a');
+        a.href = nextQuestionId;
+        a.target = '_blank';
+        a.click();
         break;
 
       default:
@@ -79,8 +87,9 @@ export default class App extends React.Component {
         });
 
         //次回の質問
-        this.displayNextQuestion(nextQuestionId);
-
+        setTimeout(() => {
+          this.displayNextQuestion(nextQuestionId);
+        },1000);
         break;
     }
   };
@@ -89,6 +98,14 @@ export default class App extends React.Component {
   componentDidMount(){
     const initAnsWer = "";
     this.selectAnsWer(initAnsWer, this.state.currendId);
+  }
+
+  componentDidUpdate(){
+    const scrollArea = document.getElementById('scroll-area');
+
+    if(scrollArea){
+      scrollArea.scrollTop = scrollArea.scrollHeight;
+    }
   }
 
   render() {
