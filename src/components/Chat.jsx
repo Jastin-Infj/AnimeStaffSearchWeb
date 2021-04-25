@@ -12,7 +12,7 @@ import ToraHackimg from '../assets/img/torahack.png';
 const Chat = (props) => {
     const isQuestion = (props.type === 'question');
     //class属性を条件分岐
-    const classes = isQuestion ? '.p-chat__row' : 'p-chat__reverse';
+    const classes = isQuestion ? 'p-chat__row' : 'p-chat__reverse';
     return (
         <ListItem className={classes}>
             <ListItemAvatar>
@@ -22,7 +22,7 @@ const Chat = (props) => {
                     (<Avatar alt="icon" src={ChatProfiles} />)
                 }
             </ListItemAvatar>
-            <div className=".p-chat__bubble">
+            <div className="p-chat__bubble">
                 {props.text}
             </div>
         </ListItem>
