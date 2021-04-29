@@ -29,13 +29,12 @@
 # その他(気になったこと)
  [Type-Alias と interface の違い1](https://zenn.dev/luvmini511/articles/6c6f69481c2d17)  
  [Type-Alias と interface の違い2](https://qiita.com/sotszk/items/efe32e07e52dce329653)  
-    |Center align| Center align| Center align           |
-    |:-------- -:|:-----------:|:----------------------:|  
-    |            | Type-Alias  | interface              |  
-    |            | 代入        | 宣言                   |  
-    | semi       | true        | false                 |  
-    | 定義可能   | any         | object or class       |  
-    | 拡張       | false       | true                  |  s
+|                  | Type-alias | interface           | 
+| :--------------: | :--------: | :-----------------: | 
+| 定義             | 代入       | 宣言                | 
+| セミコロン       | あり       | なし                | 
+| 定義可能範囲 型  | any        | class または object | 
+| パラメーター拡張 | なし       | あり                | 
 * * *  
 
 # エラー発生時
