@@ -61,6 +61,13 @@ void型 any型でもない場合は、return する型を明示的に宣言し�
 undefinedを返したい場合           →  **return undefined;** を記載  
 関数にreturn を記載したくない場合  →  **void** に設定する  
 
+## Error 2365 Operator '+' cannot be applied to types 'number' and 'boolean'.
+**原因**
+number型 と boolean型に 加算を行ったため  
+
+解決方法:  
+number と boolean型の計算を諦める
+
 ## Error 2451 Cannot redeclare block-scoped variable '変数名'. '変数名' was also declared here.
 **原因:**  
 Javascriptではmoduleシステムを導入していない場合  
@@ -71,6 +78,14 @@ Javascriptではmoduleシステムを導入していない場合
 
 解決方法:  
 問題のあるソースファイルに **export**を追加してmodule化すれば良い  
+
+## Error 2571 Object is of type 'unknown'.
+**原因**
+型名に unknownになっている。  
+
+解決方法:  
+ 1. **typeof** で計算 unknownになっている型を検討
+ 2. **if typeof** などで ブロックスコープ内で計算・実行させる
 
 ## Error 2741 Property '未定義param名' is missing in type '定義済みparam名' but required in type 'interface型'.
 **原因:**
