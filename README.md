@@ -29,6 +29,14 @@
 
 # エラー発生時
 
+## Error 2322 Type '型名' is not assignable to type '型名'.
+**原因**
+代入値が 型名と合っていない。
+
+解決方法:  
+型名に対応している値を計算してください。  
+* * *
+
 ## Error 2451 Cannot redeclare block-scoped variable '変数名'. '変数名' was also declared here.
 **原因:**  
 Javascriptではmoduleシステムを導入していない場合  
