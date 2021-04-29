@@ -5,5 +5,6 @@ let name: string = 'test';
 
 let inif: boolean = true;
 inif = false;
-//inif = 1; error 型が違う
+//! 型が違う
+//inif = 1; 
 console.log({inif});
