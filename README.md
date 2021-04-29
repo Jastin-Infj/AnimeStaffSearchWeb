@@ -26,6 +26,16 @@
 ・「ワークスペース」のバーションに合わせる  
 * * *
 
+# その他(気になったこと)
+ [Type-Alias と interface の違い](https://zenn.dev/luvmini511/articles/6c6f69481c2d17 "interface1")  
+ [Type-Alias と interface の違い](https://qiita.com/sotszk/items/efe32e07e52dce329653 "interface2")  
+    |            | Type-Alias  | interface             |  
+    |:-----------|------------:|:---------------------:|  
+    |            | 代入        | 宣言                   |  
+    | semi       | true        | false                 |  
+    | 定義可能   | any         | object or class       |  
+    | 拡張       | false       | true                  |  s
+* * *  
 
 # エラー発生時
 
@@ -60,18 +70,18 @@ Javascriptではmoduleシステムを導入していない場合
 その変数名が、どこかで宣言させている変数名と被ってしまったため、宣言が出来ないですよ。と言っている。  
 
 解決方法:  
-問題のあるソースファイルに exportを追加してmodule化すれば良い  
+問題のあるソースファイルに **export**を追加してmodule化すれば良い  
 
 ## Error 2741 Property '未定義param名' is missing in type '定義済みparam名' but required in type 'interface型'.
 **原因:**
 未定義のパラメーターが存在しています。  
 
 解決方法:  
-未定義のparam名を追加してください。  
+**未定義のparam名**を追加してください。  
 
 ## Error 2749 '変数名' refers to a value, but is being used as a type here.
 **原因:**
 型として 表現出来ていない。  
 
 解決方法:  
-typeof のような役割を持つ 予約語を 変数名に当ててください。  
+**typeof** のような役割を持つ 予約語を 変数名に当ててください。  
