@@ -27,10 +27,11 @@
 * * *
 
 # その他(気になったこと)
- [Type-Alias と interface の違い](https://zenn.dev/luvmini511/articles/6c6f69481c2d17 "interface1")  
- [Type-Alias と interface の違い](https://qiita.com/sotszk/items/efe32e07e52dce329653 "interface2")  
-    |            | Type-Alias  | interface             |  
-    |:-----------|------------:|:---------------------:|  
+ [Type-Alias と interface の違い1](https://zenn.dev/luvmini511/articles/6c6f69481c2d17)  
+ [Type-Alias と interface の違い2](https://qiita.com/sotszk/items/efe32e07e52dce329653)  
+    |Center align| Center align| Center align           |
+    |:-------- -:|:-----------:|:----------------------:|  
+    |            | Type-Alias  | interface              |  
     |            | 代入        | 宣言                   |  
     | semi       | true        | false                 |  
     | 定義可能   | any         | object or class       |  
