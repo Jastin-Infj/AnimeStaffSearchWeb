@@ -48,8 +48,8 @@
 void型 any型でもない場合は、return する型を明示的に宣言していない。  
 
 解決方法:  
-undefinedを返したい場合  →  return undefined; を記載  
-関数を記載したくない場合  →  **void** に設定する  
+undefinedを返したい場合           →  **return undefined;** を記載  
+関数にreturn を記載したくない場合  →  **void** に設定する  
 
 ## Error 2451 Cannot redeclare block-scoped variable '変数名'. '変数名' was also declared here.
 **原因:**  
@@ -67,4 +67,4 @@ Javascriptではmoduleシステムを導入していない場合
 未定義のパラメーターが存在しています。  
 
 解決方法:  
-未定義のparam名を追加してください。
+未定義のparam名を追加してください。  
