@@ -12,5 +12,5 @@ profile2 = {year:1975};
 let profile3: {
     name: string;
 } = {name: 'Ham'};
-//! 宣言されていないパラメーターは Error 2332 を返せる
+//! 宣言されていないパラメーターは Error 2322 を返せる
 // profile3 = {year:1975};
