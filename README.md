@@ -68,3 +68,10 @@ Javascriptではmoduleシステムを導入していない場合
 
 解決方法:  
 未定義のparam名を追加してください。  
+
+## Error 2749 '変数名' refers to a value, but is being used as a type here.
+**原因:**
+型として 表現出来ていない。  
+
+解決方法:  
+typeof のような役割を持つ 予約語を 変数名に当ててください。  
