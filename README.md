@@ -39,12 +39,35 @@
 
 # エラー発生時
 
+## Error 1061 Enum member must have initializer.
+**原因:**
+Enum型の宣言で 初期化がされていないパラメーターが存在している  
+
+解決方法:  
+初期値を設定してください。  
+
+## Error 1357 An enum member name must be followed by a ',', '=', or '}'
+**原因:**
+Enum型の宣言で **,**を忘れている可能性あり  
+
+解決方法:  
+初期値の後に **,**を追加してください
+
 ## Error 2322 Type '型名' is not assignable to type '型名'.
 **原因:**
 代入値が 型名と合っていない。  
 
 解決方法:  
 型名に対応している値を計算してください。  
+
+## Error 2339 Property 'パラメーター名' does not exist on type 'typeof 型名'.
+**原因:**
+パラメーター名が存在していない  
+
+解決方法:  
+以下の方法を試してください  
+・型名のオリジナルに      パラメーター名を追加する  
+・型名のオリジナルに対して パラメーター名を拡張する  
 
 ## Error 2345 Argument of type '代入値' is not assignable to parameter of type '型名'.
 **原因:**
