@@ -9,7 +9,7 @@ function error(message:string): never{
 try{
     let result = error('test');
 }catch(error){
-    console.log({error});
+    console.log({error});   
 }
 
 
