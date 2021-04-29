@@ -31,10 +31,17 @@
 
 ## Error 2322 Type '型名' is not assignable to type '型名'.
 **原因:**
-代入値が 型名と合っていない。
+代入値が 型名と合っていない。  
 
 解決方法:  
 型名に対応している値を計算してください。  
+
+## Error 2345 Argument of type '代入値' is not assignable to parameter of type '型名'.
+**原因**
+代入する値が 配列の要素になっていない可能性あり  
+
+解決方法:  
+代入値を型名(配列)と対応している値を計算してください。
 
 ## Error 2451 Cannot redeclare block-scoped variable '変数名'. '変数名' was also declared here.
 **原因:**  
