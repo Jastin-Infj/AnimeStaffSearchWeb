@@ -14,3 +14,7 @@
 ### npx ts-node-dev --respawn Typescriptファイル
 インストール必要: ts-node-dev  
 ※ 実行され続けるので、 終了したい場合は Ctrl + C をする  
+* * *
+
+## tsconfig.jsonを追加したい
+### npx tsc --init
