@@ -37,11 +37,19 @@
 型名に対応している値を計算してください。  
 
 ## Error 2345 Argument of type '代入値' is not assignable to parameter of type '型名'.
-**原因**
+**原因:**
 代入する値が 配列の要素になっていない可能性あり  
 
 解決方法:  
 代入値を型名(配列)と対応している値を計算してください。
+
+## Error 2355 A function whose declared type is neither 'void' nor 'any' must return a value.
+**原因:**
+void型 any型でもない場合は、return する型を明示的に宣言していない。  
+
+解決方法:  
+undefinedを返したい場合  →  return undefined; を記載  
+関数を記載したくない場合  →  **void** に設定する  
 
 ## Error 2451 Cannot redeclare block-scoped variable '変数名'. '変数名' was also declared here.
 **原因:**  
