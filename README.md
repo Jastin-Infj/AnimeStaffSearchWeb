@@ -100,15 +100,19 @@ Javascriptではmoduleシステムを導入していない場合
 その変数名が、どこかで宣言させている変数名と被ってしまったため、宣言が出来ないですよ。と言っている。  
 
 解決方法:  
-問題のあるソースファイルに **export**を追加してmodule化すれば良い  
+module化すれば良い  
+方法1  
+・問題のあるソースファイルに **export**を追加  
+方法2
+・問題のあるソースファイルに **import**を追加  
 
 ## Error 2571 Object is of type 'unknown'.
 **原因**
 型名に unknownになっている。  
 
 解決方法:  
- 1. **typeof** で計算 unknownになっている型を検討
- 2. **if typeof** などで ブロックスコープ内で計算・実行させる
+ 1. **typeof** で計算 unknownになっている型を検討  
+ 2. **if typeof** などで ブロックスコープ内で計算・実行させる  
 
 ## Error 2741 Property '未定義param名' is missing in type '定義済みparam名' but required in type 'interface型'.
 **原因:**
