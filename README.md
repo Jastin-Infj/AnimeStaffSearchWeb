@@ -96,7 +96,15 @@ undefinedを返したい場合           →  **return undefined;** を記載
 number型 と boolean型に 加算を行ったため  
 
 解決方法:  
-number と boolean型の計算を諦める
+number と boolean型の計算を諦める  
+
+## Error 2371 A parameter initializer is only allowed in a function or constructor implementation.
+**原因:**
+デフォルト引数の記述場所が誤っている  
+**変数名: (型名)**のところでは デフォルト引数は利用出来ません  
+
+解決方法:  
+・デフォルト引数値を記述している関数を見直す  
 
 ## Error 2451 Cannot redeclare block-scoped variable '変数名'. '変数名' was also declared here.
 **原因:**  
