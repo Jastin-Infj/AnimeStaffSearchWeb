@@ -152,6 +152,14 @@ void型 any型でもない場合は、return する型を明示的に宣言し�
 undefinedを返したい場合           →  **return undefined;** を記載  
 関数にreturn を記載したくない場合  →  **void** に設定する  
 
+## Error 2362 The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+**原因:**
+算術演算の右側は、「any」、「number」、「bigint」、または列挙型(配列,Enumなど)に設定されていない  
+リテラルは利用出来ません。  
+
+解決方法:  
+**「any」、「number」、「bigint」、または列挙型(配列,Enumなど)**に設定する
+
 ## Error 2365 Operator '+' cannot be applied to types 'number' and 'boolean'.
 **原因:**
 number型 と boolean型に 加算を行ったため  
@@ -238,7 +246,7 @@ module化すれば良い
 
 ## Error 2540 Cannot assign to 'プロパティ名' because it is a read-only property.
 **原因:**
-読み込み専用のプロパティに設定されている  
+読み込み専用のプロパティに設定されている  (readonly や as const)
 または  
 getter関数で setter のように記述している  
 
@@ -250,10 +258,18 @@ getter関数で setter のように記述している場合
 
 ## Error 2554 Expected 記述されている引数の数 arguments, but got 呼び出し元の引数の数.
 **原因:**
-この関数を呼び出すための 引数の数に誤りがある。
+この関数を呼び出すための 引数の数に誤りがある。  
 
 解決方法:  
-実行したい関数のパラメーターを参照し、引数の数を合わせてください。
+実行したい関数のパラメーターを参照し、引数の数を合わせてください。  
+
+## Error 2558 Cannot assign to '変数名' because it is a constant.
+**原因:**
+この変数は const属性(定数)に設定されているため 値の変更が出来ません。  
+
+解決方法:  
+・**let** に 変更する  
+・**readonly属性(as const)を解除**する  
 
 ## Error 2564 Property 'パラメーター名' has no initializer and is not definitely assigned in the constructor.
 **原因:**
