@@ -157,14 +157,14 @@ module化すれば良い
 解決方法:  
 **typeof** のような役割を持つ 予約語を 変数名に当ててください。  
 
-## Error 2769 No overload matches this call. Overload 'オーバーロード関数の1つ目' of 'オーバーロードの合計', 'オーバーロード関数11の型名', gave the following error. Argument of type 'エラー値' is not assignable to parameter of type '定義可能な引数の型名'. Overload 'オーバーロード関数のnつ目' of 'オーバーロード関数n', 'オーバーロード関数nの型名', gave the following error. Argument of type 'エラー値' is not assignable to parameter of type '定義可能な引数の型名'.
+## Error 2769 No overload matches this call. Overload 'オーバーロード関数の1つ目' of 'オーバーロードの合計', 'オーバーロード関数1の型名', gave the following error. Argument of type 'エラー値' is not assignable to parameter of type '定義可能な引数の型名'. Overload 'オーバーロード関数のnつ目' of 'オーバーロード関数n', 'オーバーロード関数nの型名', gave the following error. Argument of type 'エラー値' is not assignable to parameter of type '定義可能な引数の型名'.
 **原因:**
-シグネチャに定義されている引数の型名と違う型名を引数に設定している。
+シグネチャに定義されている引数の型名と違う型名を引数に設定している。  
 
 解決方法:  
 ・問題のあるオーバーロード関数の引数の型名と同じにする  
-または
-・引数に割り当てたい型名用**シグネチャ**を新規で定義する  
+または  
+・引数に割り当てたい型名用の**シグネチャ**を新規で定義する  
 
 ## Error 7006 Parameter '引数の変数名' implicitly has an 'any' type.
 **原因:**
