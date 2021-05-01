@@ -54,6 +54,13 @@ Enum型の宣言で 初期化がされていないパラメーターが存在し
 constructorでは return 値は入力出来ません。  
 return に返す 型の定義を外してください。  
 
+## Error 1244 Abstract methods can only appear within an abstract class.
+**原因:**
+抽象メソッドは 抽象クラス内でしか利用できない。
+
+解決方法:  
+**class** の前に **abstract** を付与する  
+
 ## Error 1357 An enum member name must be followed by a ',', '=', or '}'
 **原因:**
 Enum型の宣言で **,**を忘れている可能性あり  
@@ -154,10 +161,24 @@ number と boolean型の計算を諦める
 
 ## Error 2393 Duplicate function implementation.
 **原因:**
-関数名が重複している
+関数名が重複している  
 
 解決方法:  
-関数を削除する または オーバーロードを行う
+関数を削除する または オーバーロードを行う  
+
+## Error 2416 Property '抽象メソッド' in type '派生クラス名' is not assignable to the same property in base type '抽象クラス名'. Type '派生クラスの抽象メソッド用に定義した関数' is not assignable to type '抽象メソッドの戻り値'. Type '派生クラスで定義した抽象メソッドの型名' is not assignable to type '抽象クラスで定義したの型名'.
+**原因:**
+抽象クラスで定義したメソッド と 派生クラスで定義したメソッドの型名が一致していない  
+例:  
+・戻り値が合っていない  
+・引数の数が誤っている  
+・引数の型名が誤っている  
+
+例外:  
+・抽象メソッドに引数あり で 派生クラスに引数を記述していない場合は通ります。 ※ 順番が違えばエラー  
+
+解決方法:  
+抽象メソッドと型名を合わせてください。  
 
 ## Error 2445 Property 'パラメーター名' is protected and only accessible within class 'クラス名' and its subclasses.
 **原因:**
@@ -183,6 +204,13 @@ module化すれば良い
 ・問題のあるソースファイルに **export**を追加  
 方法2
 ・問題のあるソースファイルに **import**を追加  
+
+## Error 2515 Non-abstract class '派生クラス名' does not implement inherited abstract member 'FunctionName' from class '抽象クラス名'.
+**原因:**
+抽象クラスで定義されている 関数を 派生クラス名 で定義をしてません。  
+
+解決方法:  
+抽象クラスで定義されている 関数を定義してください。  
 
 ## Error 2540 Cannot assign to 'プロパティ名' because it is a read-only property.
 **原因:**
