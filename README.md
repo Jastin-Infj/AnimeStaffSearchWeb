@@ -280,10 +280,17 @@ static属性を内部参照する構文が誤っている可能性がありま�
 
 ## Error 2741 Property '未定義param名' is missing in type '定義済みparam名' but required in type 'interface型'.
 **原因:**
-未定義のパラメーターが存在しています。  
+以下の可能性があります。  
+原因１  
+・未定義のパラメーターが存在しています。  
+原因２  
+・型の互換性によって 代入可能だった オブジェクトに対して パラメーターが変化したことで インスタンス化が出来なくなってしまった
 
 解決方法:  
+原因１  
 **未定義のparam名**を追加してください。  
+原因２  
+**未定義のparam名**を追加 または 削除してください。
 
 ## Error 2749 '変数名' refers to a value, but is being used as a type here.
 **原因:**
