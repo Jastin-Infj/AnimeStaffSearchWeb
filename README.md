@@ -47,7 +47,7 @@ Enum型の宣言で 初期化がされていないパラメーターが存在し
 初期値を設定してください。  
 
 ## Error 1093 Type annotation cannot appear on a constructor declaration.
-**原因**
+**原因:**
 問題のあるconstructorに 型の return 値を入力している  
 
 解決方法:  
@@ -100,7 +100,7 @@ undefinedを返したい場合           →  **return undefined;** を記載
 関数にreturn を記載したくない場合  →  **void** に設定する  
 
 ## Error 2365 Operator '+' cannot be applied to types 'number' and 'boolean'.
-**原因**
+**原因:**
 number型 と boolean型に 加算を行ったため  
 
 解決方法:  
