@@ -54,6 +54,13 @@ Enum型の宣言で 初期化がされていないパラメーターが存在し
 constructorでは return 値は入力出来ません。  
 return に返す 型の定義を外してください。  
 
+## Error 1174 Classes can only extend a single class.
+**原因:**
+extends で派生が可能なクラスは 1つまでです。
+
+解決方法:  
+interfaceを複数定義し、**implements** を用いることで 多重継承のように実装する  
+
 ## Error 1244 Abstract methods can only appear within an abstract class.
 **原因:**
 抽象メソッドは 抽象クラス内でしか利用できない。
@@ -168,7 +175,7 @@ number と boolean型の計算を諦める
 
 ## Error 2416 Property '抽象メソッド' in type '派生クラス名' is not assignable to the same property in base type '抽象クラス名'. Type '派生クラスの抽象メソッド用に定義した関数' is not assignable to type '抽象メソッドの戻り値'. Type '派生クラスで定義した抽象メソッドの型名' is not assignable to type '抽象クラスで定義したの型名'.
 **原因:**
-抽象クラスで定義したメソッド と 派生クラスで定義したメソッドの型名が一致していない  
+抽象クラスやinterfaceで定義したメソッド と 派生クラスで定義したメソッドの型名が一致していない  
 例:  
 ・戻り値が合っていない  
 ・引数の数が誤っている  
@@ -179,6 +186,13 @@ number と boolean型の計算を諦める
 
 解決方法:  
 抽象メソッドと型名を合わせてください。  
+
+## Error 2420 Class 'interfaceを実装するクラス名' incorrectly implements interface 'interface名'. Property 'interface名.FuncName' is missing in type 'interfaceを実装するクラス名' but required in type 'interface名'.
+**原因:**
+interfaceで定義されている 関数が実装されていない  
+
+解決方法:  
+interfaceで定義されている 関数を定義してください。  
 
 ## Error 2445 Property 'パラメーター名' is protected and only accessible within class 'クラス名' and its subclasses.
 **原因:**
