@@ -84,6 +84,14 @@ Enum型の宣言で **,**を忘れている可能性あり
 ・型名のオリジナルに      パラメーター名を追加する  
 ・型名のオリジナルに対して パラメーター名を拡張する  
 
+## Error 2341 Property 'パラメーター名' is private and only accessible within class 'クラス名'.
+**原因:**
+このパラメーター名は、インスタンスからの参照が出来なくなっています。(private属性に設定されている)
+
+解決方法:  
+・内部処理で パラメーター名を記述する  
+・private属性を 削除する  
+
 ## Error 2345 Argument of type '代入値' is not assignable to parameter of type '型名'.
 **原因:**
 代入する値が 型名の要素になっていない可能性あり  
@@ -114,12 +122,31 @@ number と boolean型の計算を諦める
 解決方法:  
 ・デフォルト引数値を記述している関数を見直す  
 
+## Error 2377 Constructors for derived classes must contain a 'super' call.
+**原因:**
+子クラスに対して super()の呼び出しがない  
+
+解決方法:  
+・子クラスに constructor() 自体 をなくす (内部では コンストラクタの中で super()が呼び出されている状態)  
+または  
+・constructor()で super()を呼び出す  
+
 ## Error 2393 Duplicate function implementation.
 **原因:**
 関数名が重複している
 
 解決方法:  
 関数を削除する または オーバーロードを行う
+
+## Error 2445 Property 'パラメーター名' is protected and only accessible within class 'クラス名' and its subclasses.
+**原因:**
+アクセス修飾子が **protexted**に設定されています。  
+インスタンスからの外部参照ができません。
+
+解決方法:  
+・派生クラスの内部で参照する  
+または  
+・**public** に設定する
 
 ## Error 2451 Cannot redeclare block-scoped variable '変数名'. '変数名' was also declared here.
 **原因:**  
@@ -142,6 +169,13 @@ module化すれば良い
 
 解決方法:  
 実行したい関数のパラメーターを参照し、引数の数を合わせてください。
+
+## Error 2564 Property 'パラメーター名' has no initializer and is not definitely assigned in the constructor.
+**原因:**
+'パラメーター名'が constructorで初期化をしていない  
+
+解決方法:  
+constructorで'パラメーター名'を初期化してください。  
 
 ## Error 2571 Object is of type 'unknown'.
 **原因**
@@ -178,7 +212,14 @@ module化すれば良い
 **原因:**
 以下のパターンが考えられます。  
 ・暗黙的にany型設定されている変数名が存在する  
-・引数の変数名に 型を定義していないものが存在する  
+・引数の変数名に 型を定義していないものが存在する 
 
 解決方法:  
 **型を定義** または  問題のある引数名を削除する  
+
+## Error 17009 'super' must be called before accessing 'this' in the constructor of a derived class.
+**原因:**
+派生クラスのコンストラクタの前にthisでアクセスは出来ません  
+
+解決方法:  
+**super()**の前に**this**は利用しない  
