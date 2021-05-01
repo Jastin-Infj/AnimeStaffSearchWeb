@@ -158,7 +158,7 @@ undefinedを返したい場合           →  **return undefined;** を記載
 リテラルは利用出来ません。  
 
 解決方法:  
-**「any」、「number」、「bigint」、または列挙型(配列,Enumなど)**に設定する
+**「any」、「number」、「bigint」、または列挙型(配列,Enumなど)**に設定する  
 
 ## Error 2365 Operator '+' cannot be applied to types 'number' and 'boolean'.
 **原因:**
