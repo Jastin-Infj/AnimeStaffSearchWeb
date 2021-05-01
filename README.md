@@ -78,10 +78,10 @@ Enum型の宣言で **,**を忘れている可能性あり
 
 ## Error 2345 Argument of type '代入値' is not assignable to parameter of type '型名'.
 **原因:**
-代入する値が 配列の要素になっていない可能性あり  
+代入する値が 型名の要素になっていない可能性あり  
 
 解決方法:  
-代入値を型名(配列)と対応している値を計算してください。
+代入値を型名と対応している値を計算してください。
 
 ## Error 2355 A function whose declared type is neither 'void' nor 'any' must return a value.
 **原因:**
@@ -105,6 +105,13 @@ number と boolean型の計算を諦める
 
 解決方法:  
 ・デフォルト引数値を記述している関数を見直す  
+
+## Error 2393 Duplicate function implementation.
+**原因:**
+関数名が重複している
+
+解決方法:  
+関数を削除する または オーバーロードを行う
 
 ## Error 2451 Cannot redeclare block-scoped variable '変数名'. '変数名' was also declared here.
 **原因:**  
@@ -149,6 +156,15 @@ module化すれば良い
 
 解決方法:  
 **typeof** のような役割を持つ 予約語を 変数名に当ててください。  
+
+## Error 2769 No overload matches this call. Overload 'オーバーロード関数の1つ目' of 'オーバーロードの合計', 'オーバーロード関数11の型名', gave the following error. Argument of type 'エラー値' is not assignable to parameter of type '定義可能な引数の型名'. Overload 'オーバーロード関数のnつ目' of 'オーバーロード関数n', 'オーバーロード関数nの型名', gave the following error. Argument of type 'エラー値' is not assignable to parameter of type '定義可能な引数の型名'.
+**原因:**
+シグネチャに定義されている引数の型名と違う型名を引数に設定している。
+
+解決方法:  
+・問題のあるオーバーロード関数の引数の型名と同じにする  
+または
+・引数に割り当てたい型名用**シグネチャ**を新規で定義する  
 
 ## Error 7006 Parameter '引数の変数名' implicitly has an 'any' type.
 **原因:**
