@@ -179,11 +179,16 @@ module化すれば良い
 方法2
 ・問題のあるソースファイルに **import**を追加  
 
-## Error 2540 Cannot assign to 'FunnctionName' because it is a read-only property.
+## Error 2540 Cannot assign to 'プロパティ名' because it is a read-only property.
 **原因:**
-この関数は 読み込み専用のプロパティに設定されている  
+読み込み専用のプロパティに設定されている  
+または  
+getter関数で setter のように記述している  
 
 解決方法:  
+readonly属性が付与されている場合  
+**public**属性に変更 または **protected** 属性に変更  
+getter関数で setter のように記述している場合  
 **setter**を用意してください。  
 
 ## Error 2554 Expected 記述されている引数の数 arguments, but got 呼び出し元の引数の数.
