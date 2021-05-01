@@ -39,6 +39,16 @@
 
 # エラー発生時
 
+## Error 1005 ':' expected.
+**原因:**
+Object形式になっていません。  
+
+解決方法:  
+Object形式を入力したい場合:  
+**key: param** の形式で記述してください。
+渡しているのがObject形式の場合:  
+**{ }**は不要です。削除してください。  
+
 ## Error 1061 Enum member must have initializer.
 **原因:**
 Enum型の宣言で 初期化がされていないパラメーターが存在している  
