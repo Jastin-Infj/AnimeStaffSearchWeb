@@ -27,6 +27,8 @@
 * * *
 
 # その他(気になったこと)
+
+## Type-Alias と interface の違い
  [Type-Alias と interface の違い1](https://zenn.dev/luvmini511/articles/6c6f69481c2d17)  
  [Type-Alias と interface の違い2](https://qiita.com/sotszk/items/efe32e07e52dce329653)  
 |                  | Type-alias | interface           | 
@@ -35,6 +37,34 @@
 | セミコロン       | あり       | なし                | 
 | 定義可能範囲 型  | any        | class または object | 
 | パラメーター拡張 | なし       | あり                | 
+* * *  
+
+## Partialの仕組み
+
+```test.ts
+type Profile = {  
+    name:string;  
+    age:number;  
+};  
+```
+
+Profileオブジェクト と keyof["name","age"]  
+/* T = Profile P = keyof ["name","age"] に入る  
+
+``` Partial.ts
+type Partial<T> = {  
+    [P in keyof T]?: T[P];  
+};  
+```
+
+右側:中身の参照は以下の通り  
+1 . Profile(T) ("name")[P]; 中身 = string;  
+2 . Profile(T) ("age")[P];  中身 = number;  
+
+その対象物に対して optionalを付与  
+["name"]? += string;  
+["age"]?  += number;  
+
 * * *  
 
 # エラー発生時
