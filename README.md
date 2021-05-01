@@ -46,6 +46,14 @@ Enum型の宣言で 初期化がされていないパラメーターが存在し
 解決方法:  
 初期値を設定してください。  
 
+## Error 1093 Type annotation cannot appear on a constructor declaration.
+**原因**
+問題のあるconstructorに 型の return 値を入力している  
+
+解決方法:  
+constructorでは return 値は入力出来ません。  
+return に返す 型の定義を外してください。  
+
 ## Error 1357 An enum member name must be followed by a ',', '=', or '}'
 **原因:**
 Enum型の宣言で **,**を忘れている可能性あり  
