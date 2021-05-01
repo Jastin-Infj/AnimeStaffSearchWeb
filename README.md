@@ -213,6 +213,24 @@ constructorで'パラメーター名'を初期化してください。
  1. **typeof** で計算 unknownになっている型を検討  
  2. **if typeof** などで ブロックスコープ内で計算・実行させる  
 
+## Error 2576 Property 'パラメーター名' is a static member of type 'クラス名'
+**原因:**
+パラメーター名が static属性になっているので 動的に生成されたクラスにアクセス出来ません。  
+
+解決方法:  
+アクセスしたい場合  
+**ClassName.パラメーター名** で参照する  
+
+## Error 2662 Cannot find name 'static パラメーター名'. Did you mean the static member 'クラス名.パラメーター名'?
+**原因:**
+static属性を内部参照する構文が誤っている可能性があります。  
+
+解決方法:  
+参照先が 自分の場合  
+**this.static パラメーター名**を指定する。  
+参照先が 外部の場合  
+**クラス名.static パラメーター名**を指定する。  
+
 ## Error 2741 Property '未定義param名' is missing in type '定義済みparam名' but required in type 'interface型'.
 **原因:**
 未定義のパラメーターが存在しています。  
