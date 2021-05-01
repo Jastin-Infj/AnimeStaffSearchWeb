@@ -61,6 +61,13 @@ Enum型の宣言で **,**を忘れている可能性あり
 解決方法:  
 初期値の後に **,**を追加してください  
 
+## Error 2300 Duplicate identifier '名前'.
+**原因:**
+識別子が重複している  
+
+解決方法:  
+名前を重複しないようにしてください。
+
 ## Error 2304 Cannot find name '変数名'.
 **原因:**
 未定義の 変数名が利用されている  
@@ -98,6 +105,15 @@ Enum型の宣言で **,**を忘れている可能性あり
 
 解決方法:  
 代入値を型名と対応している値を計算してください。
+
+## Error 2349 This expression is not callable. Type '戻り値の型名' has no call signatures.
+**原因:**
+以下が考えられます。  
+・setterやgetter の呼び出しに対して **();**をつけている  
+
+解決方法:  
+ setterやgetterの場合  
+  **();**の呼び出しを **setterFunctionName;** または **getterFunctionName;** に切り替えてください  
 
 ## Error 2355 A function whose declared type is neither 'void' nor 'any' must return a value.
 **原因:**
@@ -162,6 +178,13 @@ module化すれば良い
 ・問題のあるソースファイルに **export**を追加  
 方法2
 ・問題のあるソースファイルに **import**を追加  
+
+## Error 2540 Cannot assign to 'FunnctionName' because it is a read-only property.
+**原因:**
+この関数は 読み込み専用のプロパティに設定されている  
+
+解決方法:  
+**setter**を用意してください。  
 
 ## Error 2554 Expected 記述されている引数の数 arguments, but got 呼び出し元の引数の数.
 **原因:**
