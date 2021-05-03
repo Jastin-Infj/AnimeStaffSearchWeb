@@ -300,6 +300,14 @@ readonly属性が付与されている場合
 getter関数で setter のように記述している場合  
 **setter**を用意してください。  
 
+## Error 2542 Index signature in type 'readonly number[]' only permits reading.
+**原因:**
+読み込み専用のインデックスシグネチャに設定されている。
+
+解決方法:  
+readonly属性が付与されている場合  
+**readonly**を外す。  
+
 ## Error 2554 Expected 記述されている引数の数 arguments, but got 呼び出し元の引数の数.
 **原因:**
 この関数を呼び出すための 引数の数に誤りがある。  
