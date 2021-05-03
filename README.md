@@ -151,11 +151,19 @@ namespaceの場合
 
 ## Error 2341 Property 'パラメーター名' is private and only accessible within class 'クラス名'.
 **原因:**
-このパラメーター名は、インスタンスからの参照が出来なくなっています。(private属性に設定されている)
+このパラメーター名は、インスタンスからの参照が出来なくなっています。(private属性に設定されている)  
 
 解決方法:  
 ・内部処理で パラメーター名を記述する  
 ・private属性を 削除する  
+
+## Error 2344 Type '問題のある全体のリテラル値' does not satisfy the constraint '定義済みリテラル'. Type '問題のある箇所のリテラル' is not assignable to type '定義済みリテラル'.
+**原因:**
+リテラル以外で指定されていない要素が含まれている  
+
+**解決方法:**
+・**リテラルとして新しく追加**する  
+・**リテラルとして登録しない**  
 
 ## Error 2345 Argument of type '代入値' is not assignable to parameter of type '型名'.
 **原因:**
@@ -339,6 +347,13 @@ static属性を内部参照する構文が誤っている可能性がありま�
 **this.static パラメーター名**を指定する。  
 参照先が 外部の場合  
 **クラス名.static パラメーター名**を指定する。  
+
+## Error 2693 'type属性値' only refers to a type, but is being used as a value here.
+**原因:**
+type属性は値として利用することが出来ません。  
+
+解決方法:  
+・**let**などで インスタンス化をしてください。  
 
 ## Error 2741 Property '未定義param名' is missing in type '定義済みparam名' but required in type 'interface型'.
 **原因:**
