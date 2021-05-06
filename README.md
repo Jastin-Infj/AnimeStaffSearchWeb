@@ -128,6 +128,13 @@ Enum型の宣言で **,**を忘れている可能性あり
 解決方法:  
 問題が出た**変数名の定義** または **削除**する  
 
+## Error 2315 type 'observable' is not generic
+**原因:**
+ジェネリック型ではない。  
+
+解決方法:  
+型名を再度確認してください。  
+
 ## Error 2322 Type '型名' is not assignable to type '型名'.
 **原因:**
 代入値が 型名と合っていない。  
@@ -191,11 +198,23 @@ undefinedを返したい場合           →  **return undefined;** を記載
 
 ## Error 2362 The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
 **原因:**
-算術演算の右側は、「any」、「number」、「bigint」、または列挙型(配列,Enumなど)に設定されていない  
+算術演算の左側は、「any」、「number」、「bigint」、または列挙型(配列,Enumなど)に設定されていない  
 リテラルは利用出来ません。  
 
 解決方法:  
 **「any」、「number」、「bigint」、または列挙型(配列,Enumなど)**に設定する  
+
+## Error 2363 The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+**原因:**
+算術演算の右側は、「any」、「number」、「bigint」、または列挙型(配列,Enumなど)に設定されていない  
+リテラルは利用出来ません。  
+
+objectの同士 '&'は利用出来ません。  
+
+解決方法:  
+**「any」、「number」、「bigint」、または列挙型(配列,Enumなど)**に設定する  
+object型の結合  
+**例:{...ObjectA, ...ObjectB};**を採用する   
 
 ## Error 2365 Operator '+' cannot be applied to types 'number' and 'boolean'.
 **原因:**
@@ -299,6 +318,14 @@ readonly属性が付与されている場合
 **public**属性に変更 または **protected** 属性に変更  
 getter関数で setter のように記述している場合  
 **setter**を用意してください。  
+
+## Error 2542 Index signature in type 'readonly number[]' only permits reading.
+**原因:**
+読み込み専用のインデックスシグネチャに設定されている。
+
+解決方法:  
+readonly属性が付与されている場合  
+**readonly**を外す。  
 
 ## Error 2554 Expected 記述されている引数の数 arguments, but got 呼び出し元の引数の数.
 **原因:**
