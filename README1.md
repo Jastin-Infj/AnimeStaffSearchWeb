@@ -431,6 +431,40 @@ type属性は値として利用することが出来ません。
 解決方法:  
 **型を定義** または  問題のある引数名を削除する  
 
+## Error 7053 Element implicitly has an 'any' type because expression of type '型名' can't be used to index type 'objectのData'. No index signature with a parameter of type '型名' was found on type 'objectのData'.
+**例:**
+``` test.ts  
+const myObj: object = {}  
+const propname = 'propname'  
+
+myObj[propname] = 'string'   Error 7053
+```  
+
+**原因:**
+指定したプロパティが本来のオブジェクトの型が一致しないため、TypeScriptは暗黙的にany型と推論してしまう。  
+または key値の型名が対応されていないものに設定されている  
+
+**解決方法:**
+**Array.map()**の場合  
+**interface**を用意して、**[key: 型名]:**と追加する  
+**Object.map()**の場合  
+**型アサーション**を行う必要がある  
+``` test.ts
+Object.keys(object) as Array<keyof typeof object>;
+//または
+const properties : ("name" | "age" | "occupation")[]
+```
+基本的に**key**は**string**で定義すること  
+
+**number型のkeysを取得する**  
+```
+//numberの keys を取得する場合  
+type Foo = { [key: number]: string };
+const foo: Foo = { 100: 'foo', 200: 'bar' };
+const sizes: number[] = Object.keys(foo).map(Number);  //[100,200]
+```
+
+
 ## Error 17009 'super' must be called before accessing 'this' in the constructor of a derived class.
 **原因:**
 派生クラスのコンストラクタの前にthisでアクセスは出来ません  
