@@ -241,6 +241,37 @@ number と boolean型の計算を諦める
 または  
 ・constructor()で super()を呼び出す  
 
+## Error 2379 Getter and setter accessors do not agree in visibility.
+**原因:**  
+public属性が付与されていない。  
+
+解決方法:  
+・**public属性**を付与する。  
+・**static**の場合 getterとsetterは同じ 属性であること
+
+```  
+        //OK (publicが付与されている)
+        static set cureentQueryRunning(value: string){
+            this._cureentQueryRunning = value;
+        }
+        //OK (publicが付与されている)
+        static get cureentQueryRunning(){
+            return this._cureentQueryRunning;
+        }
+```  
+
+```  
+        //NG (publicが付与されている)
+        public static set cureentQueryRunning(value: string){
+            this._cureentQueryRunning = value;
+        }
+        //NG (privateが付与されている)
+        private static get cureentQueryRunning(){
+            return this._cureentQueryRunning;
+        }
+```
+**protected**と**public**属性でも NG となる。  
+
 ## Error 2393 Duplicate function implementation.
 **原因:**
 関数名が重複している  
