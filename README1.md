@@ -249,7 +249,7 @@ public属性が付与されていない。
 ・**public属性**を付与する。  
 ・**static**の場合 getterとsetterは同じ 属性であること
 
-```  
+```OK.ts
         //OK (publicが付与されている)
         static set cureentQueryRunning(value: string){
             this._cureentQueryRunning = value;
@@ -260,7 +260,7 @@ public属性が付与されていない。
         }
 ```  
 
-```  
+```NG.ts
         //NG (publicが付与されている)
         public static set cureentQueryRunning(value: string){
             this._cureentQueryRunning = value;
